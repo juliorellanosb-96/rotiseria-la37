@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotisería La 37</title>
+    <meta name="description"
+        content="Rotisería La 37 - Calle 37 N°169 e/ 4 y 6, General Pico. Promos, pizzas, empanadas, sanguches, viandas, tartas y más. Pedí por WhatsApp.">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="imagenes/logo-favicon.jpg.jpeg">
+    <link rel="apple-touch-icon" href="imagenes/logo-favicon.jpg.jpeg">
+    <meta name="theme-color" content="#111111">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Google+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark mi-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="imagenes/logo-favicon.jpg.jpeg" alt="Rotisería La 37" class="logo-header img-fluid">
+            </a>
+            <button class="btn btn-naranja ms-auto" onclick="abrirCarrito()">🛒 <span id="contador">0</span> - $<span
+                    id="total-nav">0</span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->                                
+    <header class="hero d-flex align-items-center text-white text-center">
+    </header>
+
+    <!-- INFO RAPIDA -->
+    <section class="py-3 bg-dark text-white text-center small">
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-4"><span class="text-naranja fw-bold">PROMOS</span><br>Todos los días</div>
+                <div class="col-4 border-start border-end border-secondary"><span class="text-naranja fw-bold">VIANDAS
+                        SEMANALES</span><br>Consultá la promo</div>
+                <div class="col-4"><span class="text-naranja fw-bold">ENVÍOS</span><br>(2302) 572512</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <main class="container my-4" id="menu">
+        <h2 class="fw-bold mb-1">Elegí tu pedido</h2>
+        <p class="text-muted small mb-3">Tocá una categoría para filtrar</p>
+
+        <div class="categorias-wrapper sticky-top py-2" style="top:62px; z-index:1020; background:#fff;"></div>
+            <div class="d-flex gap-2 overflow-auto pb-2" id="filtros-categorias"
+                style="scrollbar-width:none; white-space:nowrap;">
+                <button class="btn btn-dark btn-sm rounded-pill px-3 active" onclick="filtrar('Todos')">Todos</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Promos')">🔥
+                    Promos</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Pizzas Enteras')">🍕
+                    Pizzas Enteras</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Medias Pizzas')">🍕
+                    Medias Pizzas</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Empanadas')">🥟
+                    Empanadas</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Sanguches')">🥪
+                    Sanguches</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Al plato')">🍗 Al
+                    plato</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Papas fritas')">🍟
+                    Papas</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Menú diario')">📅 Menú
+                    diario</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Viandas')">🥗
+                    Viandas</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Bebidas')">🥤
+                    Bebidas</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Tartas enteras')">🥧
+                    Tartas enteras</button>
+                <button class="btn btn-outline-dark btn-sm rounded-pill px-3" onclick="filtrar('Medias tartas')">🥧
+                    Medias Tartas</button>
+            </div>
+        </div>
+
+        <div id="contenedor-menu"></div>
+    </main>
+
+    <!-- UBICACION -->
+    <section class="bg-light py-5 mt-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <h3 class="fw-bold">¿Dónde estamos?</h3>
+                    <p class="mb-1"><strong>Calle 37 N°169 entre 4 y 6</strong></p>
+                    <p class="text-muted">General Pico, La Pampa</p>
+                    <p>📞 (2302) 572512<br>🕒 Lunes a Domingo de 11 a 15 y de 19 a 00 hs</p>
+                </div>
+                <div class="col-md-6">
+                    <iframe src="https://www.google.com/maps?q=Calle+37+169+General+Pico&z=16&output=embed" width="100%"
+                        height="300" style="border:0; border-radius:12px;" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-la37 bg-black text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">LA 37 <span class="text-naranja">ROTISERIA</span></h5>
+                    <p class="small text-secondary">Comidas caseras y mucho más.<br>Hecho en el momento y con amor.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold small text-uppercase">Encontranos</h6>
+                    <p class="small text-secondary mb-1">Calle 37 N°169 e/ 4 y 6</p>
+                    <p class="small text-secondary">General Pico, La Pampa</p>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="fw-bold small text-uppercase">Días y Horarios</h6>
+                    <p class="small text-white mb-1">Lunes a Sábados</p>
+                    <p class="small text-secondary">10:00 a 14:00 y 19:00 a 23:30</p>
+                    <p class="small text-white">Domingos</p>
+                    <p class="small text-secondary">19:30 a 23:30</p>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="https://www.instagram.com/rotiseria.la37/" target="_blank" class="btn-social">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.facebook.com/share/14qoxVfdHFH/" target="_blank" class="btn-social">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                        </svg>
+                        Facebook
+                    </a>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="d-flex justify-content-between small text-secondary">
+                <span>© 2026 Rotisería La 37</span>
+                <span>Hecho por Conexión - Marketing</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CARRITO -->
+    <div id="overlay" onclick="cerrarCarrito()"></div>
+    <div id="carrito-panel">
+        <div class="carrito-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-bold">Tu pedido</h5>
+            <button class="btn-close" onclick="cerrarCarrito()"></button>
+        </div>
+        <div class="carrito-body">
+            <ul id="lista-carrito" class="list-unstyled">
+                <li class="text-muted small">Carrito vacío</li>
+            </ul>
+            <hr>
+            <form id="formPedido">
+                <input type="text" id="nombre" class="form-control mb-2" placeholder="Nombre y Apellido *" required>
+                <select id="tipoEntrega" class="form-select mb-2" onchange="toggleDomicilio()" required>
+                    <option value="Retiro en local">Retiro en local</option>
+                    <option value="Delivery">Delivery</option>
+                </select>
+                <input type="text" id="domicilio" class="form-control mb-2 d-none" placeholder="Domicilio completo *">
+                <input type="tel" id="telefono-cliente" class="form-control mb-2" placeholder="Tu WhatsApp *" required>
+                <input type="text" id="pagaCon" class="form-control mb-2" placeholder="¿Con cuánto pagás? Ej: 30000">
+                <textarea id="notas" class="form-control mb-2" rows="2"
+                    placeholder="Notas: sin aceitunas, timbre, etc"></textarea>
+                <div class="bg-light p-3 rounded my-3">
+                    <div class="d-flex justify-content-between"><span>Subtotal</span><strong id="subtotal">$0</strong>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold fs-5 mt-1"><span>Total</span><span
+                            id="total-panel" class="text-naranja">$0</span></div>
+                </div>
+                <button type="submit" class="btn btn-naranja w-100 py-3">ENVIAR A WHATSAPP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const TELEFONO_LA37 = "542302572512";
+        let carrito = [];
+        let total = 0;
+        let categoriaActiva = 'Todos';
+
+        const productos = [
+            { nombre: "3 Muzzas", precio: 30000, img: "./imagenes/pizza.jpeg", cat: "Promos", desc: "3 Muzzas" },
+            { nombre: "1 Muzza + 1 docena de empanadas", precio: 25000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Promos", desc: "1 Muzza + 1 docena de empanadas a elección" },
+            { nombre: "1 Muzza + 2 docena de empanadas", precio: 35000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Promos", desc: "1 Muzza + 2 docenas de empanadas a elección" },
+            { nombre: "3 Pizzas a elección", precio: 50000, img: "./imagenes/pizza10.jpg.jpeg", cat: "Promos", desc: "3 Pizzas varias" },
+            { nombre: "3 Sanguches de mila de pollo", precio: 25000, img: "./imagenes/lomitos2.jpg.jpeg", cat: "Promos", desc: "3 Sanguches de mila de pollo" },
+            { nombre: "3 Sanguches de mila de carne", precio: 25000, img: "./imagenes/lomitos2.jpg.jpeg", cat: "Promos", desc: "3 Sanguches de mila de carne" },
+            { nombre: "2 Sanguches de bondiola desmechada + fritas", precio: 30000, img: "./imagenes/bondiolaypapas.jpeg", cat: "Promos", desc: "2 Sanguches de bondiola desmechada" },
+            { nombre: "Muzzarella", precio: 12000, img: "./imagenes/pizzamuzza.jpg.jpeg", cat: "Pizzas Enteras", desc: "Muzza y salsa de tomate" },
+            { nombre: "Napolitana", precio: 20000, img: "./imagenes/pizzanapo.jpg.jpeg", cat: "Pizzas Enteras", desc: "Muzza, Cherry y salsa de tomate" },
+            { nombre: "Especial", precio: 20000, img: "./imagenes/especial.jpeg", cat: "Pizzas Enteras", desc: "Muzza, morrón, huevo y salsa de tomate" },
+            { nombre: "Calabresa", precio: 20000, img: "./imagenes/pizzacalabresaa.jpeg", cat: "Pizzas Enteras", desc: "Muzza, cantimpalo y salsa de tomate" },
+            { nombre: "Fugazzeta", precio: 20000, img: "./imagenes/pizzafuga.jpg.jpeg", cat: "Pizzas Enteras", desc: "Cebolla caramelizada, muzza y salsa de tomate" },
+            { nombre: "Roquefort", precio: 20000, img: "./imagenes/pizzaroque.jpeg", cat: "Pizzas Enteras", desc: "Muzza, roquefort y salsa de tomate" },
+            { nombre: "Cochina", precio: 25000, img: "./imagenes/cochina.jpeg", cat: "Pizzas Enteras", desc: "Muzza, huevo frito, papas fritas y salsa de tomate" },
+            { nombre: "Roquefort y Cebolla", precio: 25000, img: "./imagenes/cebollayroquepizza.jpeg", cat: "Pizzas Enteras", desc: "Muzza, roquefort, cebolla caramelizada y salsa de tomate" },
+            { nombre: "Rúcula y Jamón", precio: 25000, img: "./imagenes/pizzaruculayjamon.jpeg", cat: "Pizzas Enteras", desc: "Muzza, jamón, rúcula y salsa de tomate" },
+            { nombre: "Palmitos", precio: 25000, img: "./imagenes/palmitos.jpeg", cat: "Pizzas Enteras", desc: "Muzza, palmitos y salsa de tomate" },
+            { nombre: "Anchoas y Muzza", precio: 20000, img: "./imagenes/pizzaanchoa.jpeg", cat: "Pizzas Enteras", desc: "Muzza, anchoas y salsa de tomate" },
+            { nombre: "Anchos y salsa", precio: 20000, img: "./imagenes/pizzaanchoaysalsa.jpeg", cat: "Pizzas Enteras", desc: "Anchoas y salsa de tomate" },
+            { nombre: "Media Muzzarella", precio: 7000, img: "./imagenes/pizzamuzza.jpg.jpeg", cat: "Medias Pizzas", desc: "Muzza y salsa de tomate" },
+            { nombre: "Media Napolitana", precio: 11000, img: "./imagenes/pizzanapo.jpg.jpeg", cat: "Medias Pizzas", desc: "Muzza, cherry y salsa de tomate" },
+            { nombre: "Media Especial", precio: 11000, img: "./imagenes/especial.jpeg", cat: "Medias Pizzas", desc: "Muzza, morrón, huevo y salsa de tomate" },
+            { nombre: "Media Calabresa", precio: 11000, img: "./imagenes/pizzacalabresaa.jpeg", cat: "Medias Pizzas", desc: "Muzza, cantimpalo y salsa de tomate" },
+            { nombre: "Media Fugazzeta", precio: 11000, img: "./imagenes/pizzafuga.jpg.jpeg", cat: "Medias Pizzas", desc: "Muzza, cebolla caramelizada y salsa de tomate" },
+            { nombre: "Media Roquefort", precio: 11000, img: "./imagenes/pizzaroque.jpeg", cat: "Medias Pizzas", desc: "Muzza, roquefort y salsa de tomate" },
+            { nombre: "Media Cochina", precio: 13000, img: "./imagenes/cochina.jpeg", cat: "Medias Pizzas", desc: "Muzza, huevo frito, papas fritas y salsa de tomate" },
+            { nombre: "Media Roquefort y Cebolla", precio: 13000, img: "./imagenes/cebollayroquepizza.jpeg", cat: "Medias Pizzas", desc: "Muzza, roquefort, cebolla caramelizada y salsa de tomate" },
+            { nombre: "Media Rúcula y Jamón", precio: 11000, img: "./imagenes/pizzaruculayjamon.jpeg", cat: "Medias Pizzas", desc: "Muzza, jamón, rúcula y salsa de tomate" },
+            { nombre: "Media Palmitos", precio: 13000, img: "./imagenes/palmitos.jpeg", cat: "Medias Pizzas", desc: "Muzza, palmitos y salsa de tomate" },
+            { nombre: "Media Anchoas y Muzza", precio: 11000, img: "./imagenes/pizzaanchoa.jpeg", cat: "Medias Pizzas", desc: "Muzza, anchoas y salsa de tomate" },
+            { nombre: "Media Anchos y salsa", precio: 11000, img: "./imagenes/pizzaanchoaysalsa.jpeg", cat: "Medias Pizzas", desc: "Anchoas y salsa de tomate" },
+            { nombre: "Jamón y Queso", precio: 2000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Carne", precio: 2000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Pollo", precio: 2000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Bondiola Desmechada", precio: 2000, img: "./imagenes/empanadas.jpg.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Canastitas de Capresse", precio: 2000, img: "./imagenes/capresse.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Canastitas de Cebolla caramelizada y Queso azul", precio: 2000, img: "./imagenes/cebollayroque.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Canastitas de Humita", precio: 2000, img: "./imagenes/humita.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Canastitas de Acelga", precio: 2000, img: "./imagenes/empanadas3.jpg.jpeg", cat: "Empanadas", desc: "Por unidad" },
+            { nombre: "Lomito Completo + Fritas", precio: 20000, img: "./imagenes/lomito.jpg.jpeg", cat: "Sanguches", desc: "Lomo POSTA, huevo frito, tomate, lechuga, jamón, queso y mayonesa + papas fritas" },
+            { nombre: "Sanguche de Milanesa de Pollo + Fritas", precio: 15000, img: "./imagenes/lomitos2.jpg.jpeg", cat: "Sanguches", desc: "Mila de pollo, jamón, queso, lechuga, tomate y mayonesa" },
+            { nombre: "Sanguche de Milanesa de Carne + Fritas", precio: 15000, img: "./imagenes/lomitos2.jpg.jpeg", cat: "Sanguches", desc: "Mila de carne, jamón, queso, lechuga, tomate y mayonesa" },
+            { nombre: "Hamburguesa Simple + Fritas", precio: 10000, img: "./imagenes/hamburguesa.jpg.jpeg", cat: "Sanguches", desc: "Medallón de carne, lechuga, tomate y mayonesa" },
+            { nombre: "Hamburguesa Completa + Fritas", precio: 13000, img: "./imagenes/hamburguesa.jpg.jpeg", cat: "Sanguches", desc: "Medallón de carne, lechuga, tomate, jamón, queso, huevo frito y cheddar" },
+            { nombre: "Sanguche de Bondiola Desmechada (sin papas)", precio: 20000, img: "./imagenes/bondiola.jpeg", cat: "Sanguches", desc: "Bondiola desmechada sin papas" },
+            { nombre: "Sanguche de Bondiola Desmechada (con papas)", precio: 25000, img: "./imagenes/bondiolaypapas.jpeg", cat: "Sanguches", desc: "Bondiola desmechada con papas" },
+            { nombre: "Milanesa Napo de pollo + Papas", precio: 13000, img: "./imagenes/napoypapas.jpeg", cat: "Al plato", desc: "Milanesa napolitana de pollo con fritas" },
+            { nombre: "Milanesa Napo de carne + Papas", precio: 13000, img: "./imagenes/napoypapas.jpeg", cat: "Al plato", desc: "Milanesa napolitana de carne con fritas" },
+            { nombre: "Milanesa de Carne + Papas", precio: 12000, img: "./imagenes/milanga.jpeg", cat: "Al plato", desc: "Milanesa de carne con papas" },
+            { nombre: "Milanesa de Pollo + Papas", precio: 12000, img: "./imagenes/milanga.jpeg", cat: "Al plato", desc: "Milanesa de pollo con papas" },
+            { nombre: "Papas Fritas para 1", precio: 4000, img: "./imagenes/papasfritas.jpeg", cat: "Papas fritas", desc: "Porción para uno" },
+            { nombre: "Papas Fritas para 2", precio: 6000, img: "./imagenes/papasfritas.jpeg", cat: "Papas fritas", desc: "Porción para dos" },
+            { nombre: "Pote de Cheddar", precio: 4000, img: "./imagenes/salsacheddar.jpeg", cat: "Papas fritas", desc: "Pote extra de cheddar" },
+            { nombre: "Pote de Salsa de Queso azul", precio: 5000, img: "./imagenes/salsaroque.jpeg", cat: "Papas fritas", desc: "Pote extra de salsa de queso azul" },
+            { nombre: "Costeletas de Cerdo", precio: 12000, img: "./imagenes/costeletadecerdo.jpeg", cat: "Menú diario", desc: "Costeletas de cerdo con papas fritas o ensalada de lechuga y tomate" },
+            { nombre: "Costeletas de Vaca", precio: 12000, img: "./imagenes/costeletadevaca.jpeg", cat: "Menú diario", desc: "Costeletas de vaca con papas fritas o ensalada de lechuga y tomate" },
+            { nombre: "Pata Muslo", precio: 12000, img: "./imagenes/patamuslo.jpeg", cat: "Menú diario", desc: "Pata muslo con papas fritas o ensalada de lechuga y tomate" },
+            { nombre: "Milanesa de Carne", precio: 12000, img: "./imagenes/milanga.jpeg", cat: "Menú diario", desc: "Milanesa de carne con papas fritas o ensalada de lechuga y tomate" },
+            { nombre: "Milanesa de Pollo", precio: 12000, img: "./imagenes/milanga.jpeg", cat: "Menú diario", desc: "Milanesa de pollo con papas fritas o ensalada de lechuga y tomate" },
+            { nombre: "Omelette de JyQ con ensalada de lechuga y tomate", precio: 12000, img: "./imagenes/omelette.jpeg", cat: "Menú diario", desc: "Omelette de jamón y queso con ensalada de lechuga y tomate" },
+            { nombre: "Ensalada César", precio: 10000, img: "./imagenes/cesar.jpeg", cat: "Menú diario", desc: "Lechuga fresca" },
+            { nombre: "Vianda del Día", precio: 12000, img: "./imagenes/vianda14.jpg.jpeg", cat: "Viandas", desc: "Consultar la vianda del día" },
+            { nombre: "Brahma 710ml", precio: 3800, img: "./imagenes/brahma.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Stella 710ml", precio: 5000, img: "./imagenes/stellaa.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Andes 710ml", precio: 4300, img: "./imagenes/andes.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Brahma 473ml", precio: 3200, img: "./imagenes/brahma.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Budweiser 473ml", precio: 3200, img: "./imagenes/budweiser.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Quilmes 473ml", precio: 3200, img: "./imagenes/quilmes.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Andes 473ml", precio: 3500, img: "./imagenes/andes.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Coca-Cola 3L", precio: 8500, img: "./imagenes/cocacola.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Coca-Cola 1,5ml", precio: 5000, img: "./imagenes/cocacola.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Cepita 1,5L", precio: 5000, img: "./imagenes/cepita.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Aquarius 1,5L", precio: 5000, img: "./imagenes/aquarius.jpeg", cat: "Bebidas", desc: "Fría" },
+            { nombre: "Brócoli", precio: 12000, img: "./imagenes/tartacompleta.jpeg", cat: "Tartas enteras", desc: "Harina Común o almendras" },
+            { nombre: "Atún", precio: 12000, img: "./imagenes/tartacompleta.jpeg", cat: "Tartas enteras", desc: "Harina Común o almendras" },
+            { nombre: "Zapallito Verde", precio: 12000, img: "./imagenes/tartacompleta.jpeg", cat: "Tartas enteras", desc: "Harina Común o almendras" },
+            { nombre: "Pollo", precio: 12000, img: "./imagenes/tartacompleta.jpeg", cat: "Tartas enteras", desc: "Harina Común o almendras" },
+            { nombre: "Jamón y Queso", precio: 8000, img: "./imagenes/tarta.jpg.jpeg", cat: "Medias tartas", desc: "Harina Común" },
+            { nombre: "Jamón y Queso con huevo", precio: 10000, img: "./imagenes/tarta.jpg.jpeg", cat: "Medias tartas", desc: "Harina Común" },
+            { nombre: "Jamón y Queso con choclo", precio: 10000, img: "./imagenes/tarta.jpg.jpeg", cat: "Medias tartas", desc: "Harina Común" },
+            { nombre: "Jamón y Queso con atún", precio: 10000, img: "./imagenes/tarta.jpg.jpeg", cat: "Medias tartas", desc: "Harina Común" },
+        ];
+        function cardHTML(p) {
+  let extra = '';
+  if (p.cat.includes('Pizzas')) {
+    extra = `
+      <select class="form-select form-select-sm mt-1 tamaño-select" onchange="actualizarPrecioPizza(this, '${p.nombre}', ${p.precioMedio}, ${p.precioEntero})">
+        <option value="medio">Media - $${p.precioMedio.toLocaleString('es-AR')}</option>
+        <option value="entero">Entera - $${p.precioEntero.toLocaleString('es-AR')}</option>
+      </select>
+    `;
+  } else if (p.cat.includes('Tartas')) {
+    extra = `
+      <select class="form-select form-select-sm mt-1 masa-select">
+        <option value="Masa común">Masa común</option>
+        <option value="Masa almendras">Masa almendras</option>
+      </select>
+    `;
+  }
+  return `
+    <div class="col-6 col-md-4 col-lg-3">
+      <article class="card card-menu h-100">
+        <div class="ratio ratio-4x3"><img src="${p.img}" class="object-fit-cover" alt="${p.nombre}"></div>
+        <div class="card-body p-2 d-flex flex-column">
+          <span class="badge-cat">${p.cat}</span>
+          <h6 class="mt-2 mb-0 small fw-bold">${p.nombre}</h6>
+          <small class="text-muted" style="font-size:.7rem">${p.desc}</small>
+          ${extra}
+          <div class="d-flex justify-content-between align-items-center mt-auto pt-2">
+            <strong class="small precio-pizza">$${(p.tipo === 'medio' ? p.precioMedio : p.precioEntero).toLocaleString('es-AR')}</strong>
+            <button class="btn btn-naranja btn-sm" onclick="agregarPizza(this, '${p.nombre}', ${p.precioMedio}, ${p.precioEntero})">+</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  `;
+}
+
+        function cardHTML(p) {
+            let extra = '';
+            if (p.cat.includes('Tartas')) {
+                extra = `<select class="form-select form-select-sm mt-1 masa-select"><option value="Masa común">Masa común</option><option value="Masa almendras">Masa almendras</option></select>`;
+            }
+            return `<div class="col-6 col-md-4 col-lg-3">
+      <article class="card card-menu h-100">
+        <div class="ratio ratio-4x3"><img src="${p.img}" class="object-fit-cover" alt="${p.nombre}"></div>
+        <div class="card-body p-2 d-flex flex-column">
+          <span class="badge-cat">${p.cat}</span>
+          <h6 class="mt-2 mb-0 small fw-bold">${p.nombre}</h6>
+          <small class="text-muted" style="font-size:.7rem">${p.desc}</small>
+          ${extra}
+          <div class="d-flex justify-content-between align-items-center mt-auto pt-2">
+            <strong class="small">$${p.precio.toLocaleString('es-AR')}</strong>
+            <button class="btn btn-naranja btn-sm" onclick="agregarConMasa(this, '${p.nombre}', ${p.precio})">+</button>
+          </div>
+        </div>
+      </article>
+    </div>`;
+        }
+        
+        function renderMenu() {
+            const cont = document.getElementById('contenedor-menu');
+            if (categoriaActiva === 'Todos') {
+                const orden = ["Promos", "Pizzas", "Empanadas", "Sanguches", "Al plato", "Papas fritas", "Menú diario", "Viandas", "Bebidas", "Tartas enteras", "Medias tartas"];
+                cont.innerHTML = orden.map(cat => {
+                    const items = productos.filter(p => p.cat === cat);
+                    if (!items.length) return '';
+                    return `<div class="col-12 mt-4"><h5 class="fw-bold border-start border-4 ps-2 m-0" style="border-color:#FF6B00 !important;">${cat}</h5></div><div class="row g-3 mt-1">${items.map(p => cardHTML(p)).join('')}</div>`;
+                }).join('');
+            } else {
+                const filtrados = productos.filter(p => p.cat === categoriaActiva);
+                cont.innerHTML = `<div class="row g-3 mt-2">${filtrados.map(p => cardHTML(p)).join('')}</div>`;
+            }
+        }
+        function filtrar(cat) {
+            categoriaActiva = cat;
+            document.querySelectorAll('#filtros-categorias button').forEach(b => {
+                b.className = 'btn btn-outline-dark btn-sm rounded-pill px-3';
+                if (b.textContent.includes(cat) || (cat === 'Todos' && b.textContent === 'Todos')) b.className = 'btn btn-dark btn-sm rounded-pill px-3 active';
+            });
+            renderMenu();
+        }
+        function agregar(nombre, precio) { carrito.push({ nombre, precio }); total += precio; actualizarUI(); abrirCarrito(); }
+        function agregarConMasa(btn, nombre, precio) {
+            const sel = btn.closest('.card-body').querySelector('.masa-select');
+            let n = nombre, pr = precio;
+            if (sel) { n = `${nombre} - ${sel.value}`; if (sel.value.includes('almendras')) pr += 2000; }
+            agregar(n, pr);
+        }
+        function quitar(i) { total -= carrito[i].precio; carrito.splice(i, 1); actualizarUI(); }
+        function actualizarUI() {
+            const lista = document.getElementById('lista-carrito');
+            lista.innerHTML = carrito.length === 0 ? '<li class="text-muted small">Carrito vacío</li>' : carrito.map((p, i) => `<li class="d-flex justify-content-between py-1 border-bottom small">${p.nombre}<span>$${p.precio}<a href="#" onclick="quitar(${i});return false" class="text-danger ms-2">x</a></span></li>`).join('');
+            document.getElementById('contador').innerText = carrito.length;
+            document.getElementById('total-nav').innerText = total.toLocaleString('es-AR');
+            document.getElementById('subtotal').innerText = '$' + total.toLocaleString('es-AR');
+            document.getElementById('total-panel').innerText = '$' + total.toLocaleString('es-AR');
+        }
+        function abrirCarrito() { document.getElementById('carrito-panel').classList.add('open'); document.getElementById('overlay').classList.add('show'); }
+        function cerrarCarrito() { document.getElementById('carrito-panel').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+        function toggleDomicilio() {
+            const t = document.getElementById('tipoEntrega').value, d = document.getElementById('domicilio');
+            if (t === 'Delivery') { d.classList.remove('d-none'); d.required = true; } else { d.classList.add('d-none'); d.required = false; }
+        }
+        document.getElementById('formPedido').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (carrito.length === 0) { alert('Agregá algo'); return; }
+            const nombre = document.getElementById('nombre').value, entrega = document.getElementById('tipoEntrega').value, dom = document.getElementById('domicilio').value, tel = document.getElementById('telefono-cliente').value, paga = document.getElementById('pagaCon').value || 'A coordinar', notas = document.getElementById('notas').value || '-';
+            const detalle = carrito.map(p => `• ${p.nombre} - $${p.precio}`).join('%0A');
+            let msg = `*NUEVO PEDIDO - LA 37*%0A%0A*Cliente:* ${nombre}%0A*Tel:* ${tel}%0A*Entrega:* ${entrega}%0A${entrega === 'Delivery' ? `*Domicilio:* ${dom}%0A` : ''}%0A*PEDIDO:*%0A${detalle}%0A%0A*TOTAL: $${total}*%0A*Paga con:* $${paga}%0A*Notas:* ${notas}`;
+            window.open(`https://wa.me/${TELEFONO_LA37}?text=${msg}`, '_blank');
+        });
+        renderMenu();
+    </script>
+</body>
+
+</html>
