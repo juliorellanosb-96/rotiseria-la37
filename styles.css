@@ -158,3 +158,9 @@ body{ font-family:'Google Sans', sans-serif !important; background:#fff !importa
     padding: 0.8rem 2rem;
   }
 }
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./imagenes/imagen-hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* o el alto que quieras */
+}
